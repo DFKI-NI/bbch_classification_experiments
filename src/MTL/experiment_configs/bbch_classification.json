@@ -1,0 +1,53 @@
+{
+  "mode": "train",
+  "evaluate_checkpoint": "last.pt",
+  "experiment_name": "bbch_class",
+  "run_dir": "training_runs",
+  "evaluate_run": "run_2026-08-27_12-47-28",
+  "dataset_path": "datasets/RocasMaize_BBCH_processed/MTL",
+  "optimization": {
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "scheduler": "warmup_diff_poly"
+  },
+  "data_preprocessing": {
+    "img_resize": "gsd"
+  },
+  "model_configuration": {
+    "selected_tasks": [
+      "bbch_classification"
+    ],
+    "encoder_variant": "dil_resnet101",
+    "detailed_libmtl_configuration": "src/MTL/detailed_libmtl_configuration.yaml"
+  },
+  "task_definition": {
+    "bbch_classification": {
+      "decoder": "minimal",
+      "loss_function": "ce"
+    },
+    "bbch_regression": {
+      "decoder": "minimal",
+      "loss_function": "mse"
+    },
+    "pprcm_regression": {
+      "decoder": "minimal",
+      "loss_function": "mse"
+    },
+    "damaged_classification": {
+      "decoder": "minimal",
+      "loss_function": "ce"
+    },
+    "semantic_segmentation": {
+      "decoder": "deeplab",
+      "loss_function": "ce"
+    },
+    "distance_regression": {
+      "decoder": "deeplab",
+      "loss_function": "weighted_mse"
+    },
+    "direction_regression": {
+      "decoder": "deeplab",
+      "loss_function": "mse"
+    }
+  }
+}

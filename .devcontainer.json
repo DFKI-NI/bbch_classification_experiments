@@ -1,0 +1,32 @@
+{
+  "name": "bbch_libmtl",
+  "build": {
+    "dockerfile": "containerization/Dockerfile"
+  },
+  "runArgs": [
+    "--network", "host",
+    "--name", "bbch_libmtl",
+    "--gpus", "all",
+    "--shm-size=20gb"
+  ],
+  "containerEnv": {
+    "TZ": "Europe/Berlin"
+  },
+  "containerUser": "docker",
+  "updateRemoteUserUID": true,
+  "workspaceMount": "source=${localWorkspaceFolder},target=/bbch_classification_experiments,type=bind",
+  "workspaceFolder": "/bbch_classification_experiments",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "njpwerner.autodocstring",
+        "charliermarsh.ruff",
+        "mechatroner.rainbow-csv"
+      ]
+    }
+  },
+  "forwardPorts": [5000]  // mlflow
+}
