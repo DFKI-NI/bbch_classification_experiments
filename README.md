@@ -175,8 +175,14 @@ runs with all 7 tasks. The plot is saved in `training_runs/visualisations/`.
 # Citation
 
 If you find this work useful in your research, please cite:
-```
-
+```bibtex
+@INPROCEEDINGS{bracke2026bbch,
+  author={Bracke, Justus and Kombrink-Lübbe, Jana and Storch, Marcel and Atzmueller, Martin},
+  booktitle={2026 IEEE International Workshop on Metrology for Agriculture and Forestry (MetroAgriFor)}, 
+  title={Image-based BBCH-Stage Estimation of Maize Plants in the Leaf Development Phase using Multi-Task Learning}, 
+  year={2026},
+  keywords={BBCH, maize, computer vision, instance segmentation, multi-task learning}
+}
 ```
 
 
